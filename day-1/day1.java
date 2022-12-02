@@ -8,6 +8,8 @@ public class day1{
 		ArrayList<Integer> food = new ArrayList<Integer>();
 		int current = 0;
 		int most = 0;
+		int second = 0;
+		int third = 0;
 		try {
 			File f = new File("input.txt");
 			Scanner scan = new Scanner(f);			
@@ -18,8 +20,19 @@ public class day1{
 					current = current + now;
 				}
 				else{
-					if (current > most){
+					if (current >= most){
+						third = second;
+						second = most;
 						most = current;
+						current = 0;
+					}
+					else if (current >= second){
+						third = second;
+						second = current;
+						current = 0;
+					}
+					else if (current >= third){
+						third = current;
 						current = 0;
 					}
 					else{
@@ -31,6 +44,7 @@ public class day1{
 			System.out.println("File not found");
 			System.exit(0);
 		}
-		System.out.println(most);
+		int total = most + second + third;
+		System.out.println(total);
 	}
 }
