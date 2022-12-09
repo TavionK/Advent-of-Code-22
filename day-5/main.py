@@ -54,17 +54,21 @@ def move_():
 	where = getTo_()
 	stack = []
 	count = 0
-	#print(where)
-	while count < int(howMany):
-		where.append(original.pop())
-		count += 1
-	#print(where)
+	#first solution ---------------------------
 	# while count < int(howMany):
-	#  	stack.append(original[count])
-	#  	count += 1
-	# for x in stack:
-	# 	where.append(stack.pop())
-	# print(where)
+	# 	where.append(original.pop())
+	# 	count += 1
+	#second solution --------------------------
+	while count < int(howMany):
+		stack.append(original.pop())
+		count += 1
+
+	count = 0
+	length = len(stack)
+	while count < length:
+	 	where.append(stack.pop())
+	 	count += 1
+	
 
 f = open("input.txt", "r")
 lines = f.readlines()
